@@ -1,0 +1,47 @@
+@import "tailwindcss";
+@import "uniwind";
+
+@theme {
+  /* Primary */
+  --color-primary: #f95D3B;
+  --color-primary-dark: #0B69A3;
+  --color-primary-light: #2BB0ED;
+  
+  /* Secondary */
+  --color-secondary-green-dark: #014D40;
+  --color-secondary-green-light: #9BF9D3;
+  --color-secondary-blue-light: #D1F4FF;
+  --color-secondary-yellow-light: #FCE588;
+  --color-secondary-red-light: #AB091E;
+  --color-secondary-soft-orange: #FDE1CE;
+  --color-secondary-dark-blue: #E85737;
+  --color-secondary-red-dark: #AB091E;
+  --color-secondary-brown: #B16F05;
+
+  --color-white: #FFFFFF;
+
+  /* Neutral */
+  --color-neutral-dark-1: #1F2933;
+  --color-neutral-dark-2: #323F4B;
+  --color-neutral-grey-1: #6B7580;
+  --color-neutral-grey-2: #9FA8B1;
+  --color-neutral-grey-3: #B0B8BF;
+  --color-neutral-soft-grey-1: #DCDFE3;
+  --color-neutral-soft-grey-2: #EBEDF0;
+  --color-neutral-soft-grey-3: #FAFAFB;
+
+  /* System */
+  --color-system-red: #EF4E4E;
+  --color-system-yellow: #FBBE4A;
+  --color-system-green: #3EBD93;
+  --color-system-blue: #3EBD93;
+
+  /* Gradient */
+  /* Later cause it's better to code it in the componenets itself */
+
+  /* Custom Font */
+  --font-sans: 'Inter';
+  --font-sans-medium: 'Inter-Medium';
+  --font-sans-semibold: 'Inter-SemiBold';
+  --font-sans-bold: 'Inter-Bold';
+}
