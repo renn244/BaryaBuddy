@@ -32,10 +32,10 @@
   --color-system-red: #EF4E4E;
   --color-system-yellow: #FBBE4A;
   --color-system-green: #3EBD93;
-  --color-system-blue: #3EBD93;
+  --color-system-blue: #37ABFF;
 
   /* Gradient */
-  /* Later cause it's better to code it in the componenets itself */
+  /* Later cause it's better to code it in the components itself */
 
   /* Custom Font */
   --font-sans: 'Inter';
