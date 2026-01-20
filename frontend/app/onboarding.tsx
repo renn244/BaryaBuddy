@@ -7,6 +7,7 @@ import GetPaid from '@/assets/app/Onboarding/Get-Paid.svg';
 import KnowledgeLibrary from '@/assets/app/Onboarding/Knowledge-Library.svg';
 import Managing from '@/assets/app/Onboarding/Managing.svg';
 
+import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
 import Animated, {
     FadeIn,
@@ -50,7 +51,7 @@ const Onboarding = () => {
 
                 <View className='flex-row justify-center items-center gap-2'>
                     <Logo height={32} width={32}  />
-                    <Text className='font-sans-bold text-xl'>BaryaBuddy</Text>
+                    <Text className='font-sans-bold font-bold text-xl'>BaryaBuddy</Text>
                 </View>
 
                 <View className='w-full pb-6 gap-6 items-center'>
@@ -59,7 +60,7 @@ const Onboarding = () => {
                         <Animated.View
                         key={illustrationIndex}
                         entering={FadeIn.duration(750)}
-                        exiting={FadeOut.duration(750)}
+                        exiting={FadeOut.duration(500)}
                         >
                             {informations[illustrationIndex].ilustration}
                         </Animated.View>
@@ -93,6 +94,7 @@ const Onboarding = () => {
                 </View>
 
                 <Button 
+                onPress={() => router.push('/(auth)/login')}
                 style={({ pressed }) => ({ opacity: pressed ? 0.75 : 1 })}
                 className='w-full'>
                     <Text className="font-sans-semibold text-white text-lg">

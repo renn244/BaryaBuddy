@@ -2,8 +2,8 @@ import Logo from '@/assets/app/logo/logo.svg'
 import { Button } from '@/components/ui/Button'
 import CustomSafeAreaView from '@/components/ui/CustomSafeAreaView'
 import { Input } from '@/components/ui/Input'
-import { Link, router } from 'expo-router'
-import { Lock, User } from 'lucide-react-native'
+import { Link } from 'expo-router'
+import { User } from 'lucide-react-native'
 import { Text, View } from 'react-native'
 import { withUniwind } from 'uniwind'
 
@@ -53,7 +53,7 @@ const Login = () => {
 
                         <Link 
                         className='py-3 px-5'
-                        href={'/'}>
+                        href={'/(auth)/forgot_password'}>
                             <Text className='text-lg font-semibold text-center text-neutral-grey-1'>
                                 FORGOT PASSWORD
                             </Text>
@@ -89,9 +89,7 @@ const Login = () => {
                     <Text className='font-sans text-lg'>
                         Don't have an account?
                     </Text>
-                    <Link
-                    href={'/'}
-                    >
+                    <Link href={'/(auth)/register'}>
                         <Text className='font-sans text-lg text-primary'>
                             Register here
                         </Text>
