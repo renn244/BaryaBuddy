@@ -2,7 +2,7 @@ import Logo from '@/assets/app/logo/logo.svg'
 import { Button } from '@/components/ui/Button'
 import CustomSafeAreaView from '@/components/ui/CustomSafeAreaView'
 import { Input } from '@/components/ui/Input'
-import { Link } from 'expo-router'
+import { Link, router } from 'expo-router'
 import { User } from 'lucide-react-native'
 import { Text, View } from 'react-native'
 import { withUniwind } from 'uniwind'
@@ -45,7 +45,9 @@ const Login = () => {
 
                         </View>
 
-                        <Button>
+                        <Button
+                        onPress={() => router.push('/dashboard/overview')}
+                        >
                             <Text className='text-white text-xl font-bold font-sans-bold'>
                                 LOGIN
                             </Text>
