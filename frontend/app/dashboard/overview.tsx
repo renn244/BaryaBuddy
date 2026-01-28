@@ -127,11 +127,11 @@ const Overview = () => {
                 <View className='flex-col gap-8'>
 
                     <View className='flex-row justify-between items-center'>
-                        <Text className='font-sans-semibold font-semibold text-lg leading-5'>
+                        <Text className='font-sans-semibold font-semibold text-xl leading-5'>
                             Latest Entries
                         </Text>
 
-                        <Pressable className='p-6 rounded-xl border border-neutral-grey-3'>
+                        <Pressable className='p-1.5 rounded-xl border border-neutral-grey-3'>
                             <MoreHorizontal width={28} height={28} />
                         </Pressable>
                     </View>
@@ -140,7 +140,7 @@ const Overview = () => {
 
                         <View className='flex-row justify-between gap-3.5'>
                             <View className='flex-row gap-3.5'>
-                                <View className='px-[7.5px] py-1.75 rounded-xl'>
+                                <View className='px-[7.5px] py-1.75 rounded-xl bg-neutral-soft-grey-2'>
                                     <Salad width={30} height={30} />
                                 </View>
 
@@ -154,8 +154,7 @@ const Overview = () => {
                                 </View>
                             </View>
                             <View>
-                                <Text className='f
-                                ont-sans-semibold font-semibold text-xl leading-5'>
+                                <Text className='font-sans-semibold font-semibold text-xl leading-5'>
                                     + $20 + Vat 0.5%
                                 </Text>
                             </View>
