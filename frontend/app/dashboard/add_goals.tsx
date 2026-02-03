@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/Button';
+import DatePicker from '@/components/ui/DatePicker';
 import { Input } from '@/components/ui/Input';
 import { Label } from '@/components/ui/Label';
 import CustomSelect from '@/components/ui/Picker';
@@ -34,7 +35,7 @@ const AddGoals = () => {
 
                 <View className='flex-col gap-1'>
                     <Label>Deadline</Label>
-                    <Input />
+                    <DatePicker />
                 </View>
             </View>
 
