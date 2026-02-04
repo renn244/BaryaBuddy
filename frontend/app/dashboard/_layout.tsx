@@ -98,6 +98,7 @@ const DashboardLayout = () => {
                 tabBarIcon: ({ color }) => <Settings color={color} width={24} height={24} />
             }}
             />
+
         </Tabs>
     )
 }

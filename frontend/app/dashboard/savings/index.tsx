@@ -1,4 +1,6 @@
+import GoalCard from '@/components/dashboard/GoalCard';
 import { Button } from '@/components/ui/Button';
+import { router } from 'expo-router';
 import { CalendarDays, Car, MoreHorizontal, Smartphone } from 'lucide-react-native';
 import { useEffect } from 'react';
 import { Pressable, ScrollView, Text, View } from 'react-native';
@@ -93,76 +95,30 @@ const Savings = () => {
                         Your Goals
                     </Text>
 
-                    <Pressable className='p-1.5 rounded-xl border border-neutral-grey-3'>
+                    <Pressable 
+                    onPress={() => router.push('/dashboard/savings/your_goals')}
+                    className='p-1.5 rounded-xl border border-neutral-grey-3'>
                         <MoreHorizontal width={28} height={28} />
                     </Pressable>
                 </View>
 
-                <View className='flex-col gap-8'>
+                <View className='flex-col gap-6'>
                     
-                    <View className='flex-row items-center justify-between gap-3.5'>
-                        <View className='p-1.5 rounded-xl bg-neutral-soft-grey-2'>
-                            <Car width={30} height={30} />
-                        </View>
-                        <View className='flex-col gap-1.5 items-start w-full max-w-63'>
-                            <Text className='font-sans-semibold font-semibold text-xl leading-5'>
-                                New Bike
-                            </Text>
+                    <GoalCard 
+                    icon={<Car width={30} height={30} />}
+                    title="New Bike"
+                    progress={60}
+                    currentAmount={300}
+                    targetAmount={600}
+                    />
 
-                            <View className='w-full rounded-full h-0.75 bg-neutral-soft-grey-1 overflow-hidden'>
-                                <View
-                                className='h-full bg-primary rounded-full'
-                                style={{
-                                    // example from pokedex repo
-                                    //  width: `${Math.min(stat.base_stat, getStatsMax(stat.stat.name as any)) / (getStatsMax(stat.stat.name as any) / 100)}%`
-                                    width: `60%`
-                                }}
-                                />
-                            </View>
-
-                            <View className='flex-row w-full items-center justify-between'>
-                                <Text className='font-sans text-lg leading-5 text-neutral-grey-1'>
-                                    $300
-                                </Text>
-
-                                <Text className='font-sans text-lg leading-5 text-neutral-grey-1'>
-                                    $600
-                                </Text>
-                            </View>
-                        </View>
-                    </View>
-
-                    <View className='flex-row items-center justify-between gap-3.5'>
-                        <View className='p-1.5 rounded-xl bg-neutral-soft-grey-2'>
-                            <Smartphone width={30} height={30} />
-                        </View>
-                        <View className='flex-col gap-1.5 items-start w-full max-w-63'>
-                            <Text className='font-sans-semibold font-semibold text-xl leading-5'>
-                                Iphone 17 Pro
-                            </Text>
-
-                            <View className='w-full rounded-full h-0.75 bg-neutral-soft-grey-1 overflow-hidden'>
-                                <View
-                                className='h-full bg-primary rounded-full'
-                                style={{
-                                    // example from pokedex repo
-                                    //  width: `${Math.min(stat.base_stat, getStatsMax(stat.stat.name as any)) / (getStatsMax(stat.stat.name as any) / 100)}%`
-                                    width: `80%`
-                                }}
-                                />
-                            </View>
-
-                            <View className='flex-row w-full items-center justify-between'>
-                                <Text className='font-sans text-lg leading-5 text-neutral-grey-1'>
-                                    $600
-                                </Text>
-
-                                <Text className='font-sans text-lg leading-5 text-neutral-grey-1'>
-                                    $1200
-                                </Text>
-                            </View>
-                        </View>
-                    </View>
+                    <GoalCard 
+                    icon={<Smartphone width={30} height={30} />}
+                    title="Iphone 17 Pro"
+                    progress={80}
+                    currentAmount={600}
+                    targetAmount={1200}
+                    />
 
                 </View>
             </View>
