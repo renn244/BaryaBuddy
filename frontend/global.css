@@ -52,11 +52,11 @@
 
 @layer base {
   .sub-heading-sm {
-    @apply font-sans-semibold font-semibold text-[var(--text-base)] leading-4;
+    @apply font-sans-semibold font-semibold text-[length:var(--text-base)] leading-4;
   }
 
   .sub-heading-base {
-    @apply font-sans-semibold font-semibold text-[var(--text-xl)] leading-5;
+    @apply font-sans-semibold font-semibold text-[length:var(--text-xl)] leading-5;
   }
 
   .sub-heading-lg {
