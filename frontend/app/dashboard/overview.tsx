@@ -1,3 +1,4 @@
+import ExpenseCard from '@/components/dashboard/ExpenseCard'
 import { Bell, MoreHorizontal, Plus, Salad, Wallet } from 'lucide-react-native'
 import { Pressable, ScrollView, Text, View } from 'react-native'
 
@@ -138,27 +139,12 @@ const Overview = () => {
 
                     <View className='flex-col gap-8'>
 
-                        <View className='flex-row justify-between gap-3.5'>
-                            <View className='flex-row gap-3.5'>
-                                <View className='px-[7.5px] py-1.75 rounded-xl bg-neutral-soft-grey-2'>
-                                    <Salad width={30} height={30} />
-                                </View>
-
-                                <View>
-                                    <Text className='font-sans-semibold font-semibold text-xl leading-5'>
-                                        Food
-                                    </Text>
-                                    <Text className='font-sans text-lg text-neutral-grey-1 tracking-wider'>
-                                        20 Feb 2024
-                                    </Text>
-                                </View>
-                            </View>
-                            <View>
-                                <Text className='font-sans-semibold font-semibold text-xl leading-5'>
-                                    + $20 + Vat 0.5%
-                                </Text>
-                            </View>
-                        </View>
+                        <ExpenseCard 
+                        icon={<Salad width={30} height={30} />}
+                        title='Food'
+                        date='20 Feb 2024'
+                        amount={20}
+                        />
 
                     </View>
 
