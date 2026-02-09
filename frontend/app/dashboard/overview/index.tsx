@@ -1,4 +1,5 @@
 import ExpenseCard from '@/components/dashboard/ExpenseCard'
+import { Link } from 'expo-router'
 import { Bell, MoreHorizontal, Plus, Salad, Wallet } from 'lucide-react-native'
 import { Pressable, ScrollView, Text, View } from 'react-native'
 
@@ -28,21 +29,23 @@ const Overview = () => {
                     </View>
                 </View>
 
-                <View className='p-5 bg-primary rounded-2xl'>
-                    <View className='w-full flex-col gap-8'>
-                        <View className='flex-col gap-2'>
-                            <Wallet color={'white'} width={24} height={24} />
+                <Link href={'/dashboard/overview/total_expenses'}>
+                    <View className='p-5 bg-primary rounded-2xl'>
+                        <View className='w-full flex-col gap-8'>
+                            <View className='flex-col gap-2'>
+                                <Wallet color={'white'} width={24} height={24} />
 
-                            <Text className='font-sans text-base text-white'>
-                                Total Expense
+                                <Text className='font-sans text-base text-white'>
+                                    Total Expense
+                                </Text>
+                            </View>
+
+                            <Text className='font-semibold text-[18px] text-white'>
+                                $298.16
                             </Text>
                         </View>
-
-                        <Text className='font-semibold text-[18px] text-white'>
-                            $298.16
-                        </Text>
                     </View>
-                </View>
+                </Link>
 
                 <View className='p-5 bg-white rounded-2xl'>
                     <View className='w-full flex-col gap-8'>

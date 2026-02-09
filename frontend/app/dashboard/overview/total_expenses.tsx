@@ -1,36 +1,14 @@
 import ExpenseCard from "@/components/dashboard/ExpenseCard";
+import PingCircle from "@/components/dashboard/PingCircle";
 import { Calendar, CalendarTheme, toDateId, useCalendar } from "@marceloterreiro/flash-calendar";
 import { format } from "date-fns/fp";
 import { Bike, ChevronLeft, ChevronRight, Salad, ShoppingCart } from "lucide-react-native";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Pressable, ScrollView, Text, View } from "react-native";
-import Animated, { Easing, useAnimatedStyle, useSharedValue, withRepeat, withTiming } from "react-native-reanimated";
 
 
 const TotalExpense = () => {
     const [tabs, setTabs] = useState<"spends" | "categories">("spends")
-
-    const scale = useSharedValue(1);
-    const opacity = useSharedValue(1);
-
-    // Ping effect loop
-    useEffect(() => {
-        scale.value = withRepeat(
-            withTiming(1.2, { duration: 1000, easing: Easing.out(Easing.ease) }),
-            -1,
-            false
-        );
-        opacity.value = withRepeat(
-            withTiming(0, { duration: 1000, easing: Easing.out(Easing.ease) }),
-            -1,
-            false
-        );
-    }, []);
-
-    const animatedStyle = useAnimatedStyle(() => ({
-        transform: [{ scale: scale.value }],
-        opacity: opacity.value,
-    }));
 
     const today = toDateId(new Date());
     const { 
@@ -57,7 +35,7 @@ const TotalExpense = () => {
                             </Pressable>
 
                             <Text className="sub-heading-sm leading-5 text-neutral-dark-2">
-                                {calendarRowMonth} - 2026
+                                {calendarRowMonth}
                             </Text>
 
                             <Pressable className="p-1 border border-neutral-grey-3 rounded-[10px]">
@@ -79,7 +57,7 @@ const TotalExpense = () => {
 
                         {weeksList.map((week, weekIndex) => {
                             
-                            if(week.some(day => day.isToday)) {
+                            if(!week.some(day => day.isToday)) {
                                 return null;
                             }
                             
@@ -109,42 +87,25 @@ const TotalExpense = () => {
                     </Calendar.VStack>
                 </View>
 
-                <View className="flex-col gap-4">
-                    <View className='p-5 relative'>
-                        <Animated.View 
-                        className='size-40 absolute opacity-30 bg-neutral-soft-grey-1 rounded-full' 
-                        style={animatedStyle}
-                        />
-                        <Animated.View 
-                        className='size-35 absolute opacity-70 bg-neutral-soft-grey-1 rounded-full top-2.5 left-2.5'
-                        style={animatedStyle}
-                        />
-                        <View className='flex-row items-center justify-center size-30 rounded-full bg-primary'>
-                            <Text className='font-sans-medium font-medium text-2xl font text-white'>
-                                $800
-                            </Text>
-                        </View>
-                    </View>
-
-                    <Text className="sub-heading-base text-[14px]">
-                        You have Spend total 60% of your budget
-                    </Text>
-                </View>
+                <PingCircle 
+                amount={800}
+                description="You have Spend total 60% of your budget"
+                />
             </View>
             
-            <View className="flex-col gap-8 px-6 py-8">
-                <View>
+            <View className="flex-col gap-8 px-6 py-8 bg-white rounded-t-3xl">
+                <View className="flex-row border-px border-neutral-grey-3">
                     {/* Tabs */}
                     
                     {/* Active Tab */}
-                    <View className="px-4 pb-3 border-b-3 border-primary mb-px">
+                    <View className="px-4 pb-3 border-b-3 border-primary mb-px w-1/2">
                         <Text className="sub-heading-base text-center align-middle">
                             Spends
                         </Text> 
                     </View>
 
                     {/* Inactive Tab */}
-                    <View className="px-4 pb-4">
+                    <View className="px-4 pb-4 w-1/2">
                         <Text className="sub-heading-base text-center align-middle text-neutral-grey-2">
                             Categories
                         </Text>
@@ -238,7 +199,15 @@ const calendarTheme: CalendarTheme = {
         }),
         today: () => ({
             container: {
+                backgroundColor: "#0E33F3",
                 borderWidth: 0,
+                borderBottomEndRadius: 8,
+                borderBottomStartRadius: 8,
+                borderTopEndRadius: 8,
+                borderTopStartRadius: 8,
+            },
+            content: {
+                color: "#FFFFFF"
             }
         }),
         active: () => ({

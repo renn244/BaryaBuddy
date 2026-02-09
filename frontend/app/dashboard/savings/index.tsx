@@ -1,34 +1,11 @@
 import GoalCard from '@/components/dashboard/GoalCard';
+import PingCircle from '@/components/dashboard/PingCircle';
 import { Button } from '@/components/ui/Button';
 import { router } from 'expo-router';
 import { CalendarDays, Car, MoreHorizontal, Smartphone } from 'lucide-react-native';
-import { useEffect } from 'react';
 import { Pressable, ScrollView, Text, View } from 'react-native';
-import Animated, { Easing, useAnimatedStyle, useSharedValue, withRepeat, withTiming } from 'react-native-reanimated';
 
 const Savings = () => {
-
-    const scale = useSharedValue(1);
-    const opacity = useSharedValue(1);
-
-    // Ping effect loop
-    useEffect(() => {
-        scale.value = withRepeat(
-            withTiming(1.2, { duration: 1000, easing: Easing.out(Easing.ease) }),
-            -1,
-            false
-        );
-        opacity.value = withRepeat(
-            withTiming(0, { duration: 1000, easing: Easing.out(Easing.ease) }),
-            -1,
-            false
-        );
-    }, []);
-
-    const animatedStyle = useAnimatedStyle(() => ({
-        transform: [{ scale: scale.value }],
-        opacity: opacity.value,
-    }));
 
     return (
         <ScrollView
@@ -41,21 +18,9 @@ const Savings = () => {
                         Current Savings
                     </Text>
 
-                    <View className='p-5 relative'>
-                        <Animated.View 
-                        className='size-40 absolute opacity-30 bg-neutral-soft-grey-1 rounded-full' 
-                        style={animatedStyle}
-                        />
-                        <Animated.View 
-                        className='size-35 absolute opacity-70 bg-neutral-soft-grey-1 rounded-full top-2.5 left-2.5'
-                        style={animatedStyle}
-                        />
-                        <View className='flex-row items-center justify-center size-30 rounded-full bg-primary'>
-                            <Text className='font-sans-medium font-medium text-2xl font text-white'>
-                                $800
-                            </Text>
-                        </View>
-                    </View>
+                    <PingCircle 
+                    amount={800}
+                    />
                 </View>
                 
                 <View className='p-4 flex-col gap-4 rounded-[20px] bg-white'>
