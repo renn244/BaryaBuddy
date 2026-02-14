@@ -69,19 +69,23 @@ const Overview = () => {
                 <View className='flex-col gap-5'>
                 
                     <View className='flex-row justify-between'>
-                        <View className='p-2 rounded-xl bg-primary shadow-md'>
-                            <View className='flex-row items-center gap-2'>
+                        <Link
+                        href={'/dashboard/overview/add'}
+                        >
+                            <View className='p-2 rounded-xl bg-primary shadow-md'>
+                                <View className='flex-row items-center gap-2'>
 
-                                <View className='p-1 bg-white/25  rounded-lg'>
-                                    <Plus color={'#FFFFFF'} width={20} height={20} />
+                                    <View className='p-1 bg-white/25  rounded-lg'>
+                                        <Plus color={'#FFFFFF'} width={20} height={20} />
+                                    </View>
+
+                                    <Text className='font-sans-semibold font-semibold text-base text-white leading-4'>
+                                        Savings
+                                    </Text>
+
                                 </View>
-
-                                <Text className='font-sans-semibold font-semibold text-base text-white leading-4'>
-                                    Savings
-                                </Text>
-
                             </View>
-                        </View>
+                        </Link>
 
                         <View className='p-2 rounded-xl bg-neutral-grey-3/5 shadow-md'>
                             <View className='flex-row items-center gap-2'>
