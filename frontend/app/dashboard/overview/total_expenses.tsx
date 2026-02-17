@@ -1,91 +1,20 @@
 import ExpenseCard from "@/components/dashboard/ExpenseCard";
 import PingCircle from "@/components/dashboard/PingCircle";
-import { Calendar, CalendarTheme, toDateId, useCalendar } from "@marceloterreiro/flash-calendar";
-import { format } from "date-fns/fp";
-import { Bike, ChevronLeft, ChevronRight, Salad, ShoppingCart } from "lucide-react-native";
+import PocketDatePicker from "@/components/ui/PocketDatePicker";
+import { CalendarTheme } from "@marceloterreiro/flash-calendar";
+import { Bike, Salad, ShoppingCart } from "lucide-react-native";
 import { useState } from "react";
-import { Pressable, ScrollView, Text, View } from "react-native";
-
+import { ScrollView, Text, View } from "react-native";
 
 const TotalExpense = () => {
     const [tabs, setTabs] = useState<"spends" | "categories">("spends")
-
-    const today = toDateId(new Date());
-    const { 
-        weekDaysList, 
-        calendarRowMonth,
-        weeksList,
-    } = useCalendar({
-        calendarMonthId: today,
-        calendarActiveDateRanges: [{ startId: today, endId: today }],
-        calendarFirstDayOfWeek: 'monday',
-        getCalendarWeekDayFormat: format('EEEEEE')
-    })
 
     return (
         <ScrollView
         showsVerticalScrollIndicator={false}
         >
             <View className="py-8 px-6 flex-col gap-6">
-                <View className="bg-white rounded-3xl p-4">
-                    <Calendar.VStack>
-                        <Calendar.HStack justifyContent="space-between">
-                            <Pressable className="p-1 border border-neutral-grey-3 rounded-[10px]">
-                                <ChevronLeft  width={24} height={24} />
-                            </Pressable>
-
-                            <Text className="sub-heading-sm leading-5 text-neutral-dark-2">
-                                {calendarRowMonth}
-                            </Text>
-
-                            <Pressable className="p-1 border border-neutral-grey-3 rounded-[10px]">
-                                <ChevronRight width={24} height={24} />
-                            </Pressable>
-                        </Calendar.HStack>
-
-                        <Calendar.Row.Week>
-                            {weekDaysList.map((day) => (
-                                <Calendar.Item.WeekName
-                                key={day}
-                                height={40}
-                                theme={calendarTheme.itemWeekName}
-                                >
-                                    {day}
-                                </Calendar.Item.WeekName>
-                            ))}
-                        </Calendar.Row.Week>
-
-                        {weeksList.map((week, weekIndex) => {
-                            
-                            if(!week.some(day => day.isToday)) {
-                                return null;
-                            }
-                            
-                            return (
-                                <Calendar.Row.Week key={weekIndex}>
-                                    {week.map((day) => (
-                                        <Calendar.Item.Day.Container
-                                        dayHeight={40}
-                                        daySpacing={4}
-                                        metadata={day}
-                                        isStartOfWeek={day.isStartOfWeek}
-                                        theme={calendarTheme.itemDayContainer}
-                                        >
-                                            <Calendar.Item.Day
-                                            height={24}
-                                            metadata={day}
-                                            onPress={() => undefined}
-                                            theme={calendarTheme.itemDay}
-                                            >
-                                                {day.displayLabel}
-                                            </Calendar.Item.Day>
-                                        </Calendar.Item.Day.Container>
-                                    ))}
-                                </Calendar.Row.Week>
-                            )
-                        })}
-                    </Calendar.VStack>
-                </View>
+                <PocketDatePicker />
 
                 <PingCircle 
                 amount={800}

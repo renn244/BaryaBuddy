@@ -1,4 +1,5 @@
 import ExpenseCard from '@/components/dashboard/ExpenseCard'
+import { Link } from 'expo-router'
 import { Coins, MoreHorizontal, Plus, Wallet } from 'lucide-react-native'
 import { Pressable, ScrollView, Text, View } from 'react-native'
 
@@ -7,25 +8,28 @@ const Add = () => {
     <ScrollView>
       <ScrollView 
       horizontal={true}
-      className='py-8 px-6'
-      contentContainerClassName='gap-4'
+      contentContainerClassName='gap-4 py-8 px-6'
       >
         {/* Add category other than expense and spend? */}
         <View className='py-2 px-3 flex-col justify-center border border-dashed border-neutral-grey-3 rounded-2xl'>
           <Plus width={24} height={24} color="#B0B8BF" />
         </View>
 
-        <View className='rounded-[20px] min-w-30 p-5 flex-col gap-2 bg-white'>
-          <Wallet width={24} height={24} />
+        <Link href={'/dashboard/overview/add_income'}>
+          <View className='rounded-[20px] h-22 min-w-30 p-5 flex-col gap-2 bg-white'>
+            <Wallet width={24} height={24} />
 
-          <Text className='font-sans text-base leading-4 tracking-wider'>Add Income</Text>
-        </View>
+            <Text className='font-sans text-base leading-4 tracking-wider'>Add Income</Text>
+          </View>
+        </Link>
 
-        <View className='rounded-[20px] min-w-30 p-5 flex-col gap-2 bg-primary'>
-          <Wallet width={24} height={24} color="#FFFFFF" />
+        <Link href={'/dashboard/overview/add_expense'}>
+          <View className='rounded-[20px] h-22 min-w-30 p-5 flex-col gap-2 bg-primary'>
+            <Wallet width={24} height={24} color="#FFFFFF" />
 
-          <Text className='font-sans text-base leading-4 tracking-wider text-white'>Add Expense</Text>
-        </View>
+            <Text className='font-sans text-base leading-4 tracking-wider text-white'>Add Expense</Text>
+          </View>
+        </Link>
       </ScrollView>
 
       <View className='py-8 px-6 flex-col gap-8 rounded-t-3xl bg-white'>
